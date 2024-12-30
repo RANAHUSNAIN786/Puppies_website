@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #f5f5f5;
+      font-weight: bold;
+    }
+                /* serach box ith button */
+   /* White Header */
+   .white-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1e1e1e;
+            padding: 15px 20px;
+            border-bottom: 1px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 10;
+        }
+
+        .white-header img {
+            height: 70px;
+        }
+
+        /* Navbar Container */
+        .navbar {
+            display: flex; /* Align items in a row */
+            align-items: center;
+            justify-content: center; /* Center links horizontally */
+        }
+
+        /* Navigation Links */
+        .navbar .nav-link {
+            font-weight: bold;
+            color: #ff8303;
+            margin: 0 19px;
+            transition: color 0.2s;
+            font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .navbar .nav-link:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* Dropdown Container */
+        .dropdown {
+            position: relative;
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: black;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            min-width: 150px;
+            z-index: 1;
+        }
+
+        /* Dropdown Links */
+        .dropdown-content a {
+            color: #ff8303;
+            padding: 10px 12px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: white;
+            color: black;
+        }
+
+        /* Show Dropdown on Hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Search Box */
+        .search-box {
+            display: flex;
+            align-items: center;
+            border: 2px solid #ccc;
+            border-radius: 25px;
+            overflow: hidden;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-input {
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            flex: 1;
+            outline: none;
+        }
+
+        .search-button {
+            border: none;
+            padding: 10px 20px;
+            background-color: #ff8303;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            outline: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-button:hover {
+            background-color: white;
+            color: black;
+        }
+   
+    /* ///////////////// */
+    .c1img img{
+            height: 400px;
+            width: 100%;
+            margin-top: 70px;
+    }
+    .c1text {
+    position: relative;
+    text-align:  center;
+    position: absolute; 
+      top: 34%; 
+      left: 20%; 
+      transform: translate(-50%, -50%)
+      
+    }  
+    .c1text h1{
+        font-size: 80px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: bold;
+        color:  #ff8303;
+    }
+    .c1text h3{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color:  white;
+        font-size: 30px;
+    }            
+    /* ///////////// */
+    .hh h1{
+    color: #ff8303;
+    font-size: 60px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin: 60px;
+   }
+    .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .box {
+            width: 450px;
+            height: 300px;
+            background-color: #000; /* Black background for each box */
+            color: #ff8c00; /* Orange text color */
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .box img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .box h3 {
+            margin: 10px 0;
+            font-size: 25px;
+            text-transform: uppercase;
+        }
+
+        .box p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: white;
+        }
+
+        /* Ensures 3 boxes per row */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .box-wrapper {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            width: 95%;
+        }
+   
+
+     /* .footer section */
+     .dog-footer {
+  background: #121212; /* Black theme */
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  padding: 2rem 1rem;
+  border: 3px solid  #ff8303;
+  margin-top: 150px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  text-align: center;
+  
+}
+
+/* Headings and Paragraphs */
+.footer-contact h2,
+.footer-social h3,
+.footer-newsletter h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #ff8303; /* Vibrant orange */
+}
+
+.footer-container p {
+  font-size: 1rem;
+  color: #cccccc;
+}
+
+/* Contact Section */
+.footer-details {
+  margin-top: 1rem;
+}
+
+.footer-item {
+  margin: 1rem 0;
+}
+
+.footer-item i {
+  font-size: 1.5rem;
+  color: #ff8303; /* Orange */
+  margin-bottom: 0.5rem;
+}
+
+.footer-item p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Social Media Section */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.social-icons a {
+  color: #ff8303;
+  font-size: 3rem;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  color: #ffffff; /* White on hover */
+}
+
+/* Newsletter Section */
+.footer-newsletter form {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.footer-newsletter input {
+  padding: 0.7rem 1rem;
+  border: 1px solid #ff8303; /* Orange border */
+  border-radius: 5px;
+  background: #1c1c1c; /* Dark background */
+  color: #ffffff;
+  outline: none;
+  width: 250px;
+}
+
+.footer-newsletter button {
+  padding: 0.7rem 1rem;
+  border: none;
+  background: #ff8303; /* Orange button */
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.footer-newsletter button:hover {
+  background: #ff5700; /* Darker orange */
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #cccccc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+}
+/* Blinking Shadow Effect */
+.blinking-shadow {
+    box-shadow: 0 0 15px 2px rgba(255, 102, 0, 0.8);
+    animation: blink-shadow 1s infinite;
+}
+
+@keyframes blink-shadow {
+    0% {
+        box-shadow: 0 0 15px 2px rgba(255, 102, 0, 0.8);
+    }
+    50% {
+        box-shadow: 0 0 30px 5px rgba(255, 102, 0, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 15px 2px rgba(255, 102, 0, 0.8);
+    }
+  }
+      
+
+    </style>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  
+  <div class="white-header">
+    <!-- Logo -->
+    <img src="image/logo1 (2).png" alt="Logo">
+    
+    <!-- Search Box -->
+    <div class="search-box">
+        <input type="text" class="search-input" placeholder="Search here...">
+        <button class="search-button">Search</button>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="#" class="nav-link">Home</a>
+        <a href="About.html" class="nav-link">About</a>
+        <a href="Puppies.html" class="nav-link">Puppies</a>
+
+        <!-- Dropdown for Services -->
+        <div class="dropdown">
+            <a href="sevices.html" class="nav-link">Services &#9662</a>
+            <div class="dropdown-content">
+                <a href="Gallery.html">Gallery</a>
+                <a href="Foods.html">Foods</a>
+            </div>
+        </div>
+
+        <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+</div>
+
+                                     <!-- first img and text -->
+     <div class="container1">
+      <div class="c1img pt-3"><img src="https://img.freepik.com/premium-photo/cute-puppy-sitting-indoors-looking-camera-surrounded-by-friends-generated-by-ai_24640-126017.jpg?w=826" alt=""></div>
+      <div class="c1text"><h1>Puppies</h1> <h3>Dogs are loyal, playful companions.</h3></div>
+    </div>
+    <!-- /////////// -->
+     <div class="hh"><h1>____ALL PUPPIES</h1></div>
+    <div class="container">
+        <!-- Row 1 -->
+        <div class="box-wrapper">
+            <div class="box">
+                <img src="gallery imgs/1.avif" alt="Product 1">
+                <h3>Lebra Dogs</h3>
+                <p>Dogs are loyal, playful companions Dogs are loyal, </p>
+            </div>
+            <div class="box">
+                <img src="gallery imgs/10.jpg" alt="Product 2">
+                <h3>Husku</h3>
+                <p>Dogs are loyal, playful companions Dogs are loyal, </p>
+            </div>
+            <div class="box">
+                <img src="gallery imgs/11.jpg" alt="Product 3">
+                <h3>German Shepherd</h3>
+                <p>Dogs are loyal, playful companions Dogs are loyal, </p>
+            </div>
+            <div class="box">
+                <img src="gallery imgs/12.avif" alt="Product 4">
+                <h3>Bichon Frise</h3>
+                <p>Dogs are loyal, playful companions Dogs are loyal</p>
+            </div>
+        </div>
+        
+      
+
+        <!-- Row 2 -->
+        <div class="box-wrapper">
+            <div class="box">
+                <img src="gallery imgs/13.avif" alt="Product 7">
+                <h3>Old English Sheepdog</h3>
+                <p>Dogs are loyal, playful companions Dogs are loyal</p>
+            </div>
+            <div class="box">
+                <img src="gallery imgs/14.jpg" alt="Product 8">
+                <h3>Poodle</h3>
+                <p>Dogs are loyal, playful companions Dogs are loyal</p>
+            </div>
+            <div class="box">
+                <img src="gallery imgs/15.jpg" alt="Product 9">
+                <h3>Newfoundland</h3>
+                <p>Dogs are loyal, playful companions Dogs are loyal</p>
+            </div>
+            <div class="box">
+                <img src="gallery imgs/16.jpg" alt="Product 9">
+                <h3>Alaskan Malamute</h3>
+                <p>Dogs are loyal, playful companions Dogs are loyal</p>
+            </div>
+        </div>
+        <div class="box-wrapper">
+            <div class="box">
+                <img src="gallery imgs/19.avif" alt="Product 7">
+                <h3>Siberian Husky  </h3>
+                <p>Dogs are loyal, playful companions Dogs are loyal</p>
+            </div>
+            <div class="box">
+                <img src="gallery imgs/2.avif" alt="Product 8">
+                <h3>Newfoundland</h3>
+                <p>Dogs are loyal, playful companions Dogs are loyal</p>
+            </div>
+            <div class="box">
+                <img src="gallery imgs/20.jpg" alt="Product 9">
+                <h3>Golden Retriever</h3>
+                <p>Dogs are loyal, playful companions Dogs are loyal</p>
+            </div>
+            <div class="box">
+                <img src="gallery imgs/4.avif" alt="Product 9">
+                <h3>Silver Retriever</h3>
+                <p>Dogs are loyal, playful companions Dogs are loyal</p>
+            </div>
+        </div>
+    </div>
+
+
+      
+     <!-- fooooooooooter -->
+     <footer class="dog-footer">
+        <div class="footer-container">
+          <!-- Contact Section -->
+          <div class="footer-contact">
+            <h2>Contact Us</h2>
+            <p>Have questions about your furry friends? We're here to help!</p>
+            <div class="footer-details">
+              <div class="footer-item">
+               <a href="https://maps.app.goo.gl/S1zrSpjKsgZ6whaH6"><i class="fa fa-map-marker" aria-hidden="true" ></i></a> 
+                <p>123 Doggo Street, Puppy Town</p>
+              </div>
+              <div class="footer-item">
+                <a href="tel:+923156123959"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                <p>+1 800 555 1234</p>
+              </div>
+              
+            </div>
+          </div>
+      <!-- Social Media Section -->
+      <div class="footer-social">
+        <h3>Follow Us</h3>
+        <p>Join our community for updates, tips, and adorable dog photos.</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/profile.php?id=61570778482897&mibextid=ZbWKwL" target="_blank"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+            <a href="https://wa.me/03156123959" target="_blank"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/puppies7480/profilecard/?igsh=NzhqNGFxcTRybmM=" target="_blank"><i class="-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://www.youtube.com/@MuhammadHasanin-i5p" target="_blank"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+          </div>
+      </div>
+  
+      <!-- Newsletter Section -->
+      <div class="footer-newsletter ">
+        <h3>Subscribe to Our Newsletter</h3>
+        <p>Stay updated with the latest in dog care, news,Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur. and tips.</p>
+        <form action="#">
+          <input type="email" placeholder="Enter your email" required>
+          <button class="blinking-shadow" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>&copy; 2024 DogWorld. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

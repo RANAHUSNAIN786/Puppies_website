@@ -1,0 +1,89 @@
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: black; 
+  color: white; 
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 50px; 
+  margin: 0px; 
+}
+
+.buy-now-btn {
+  background-color: rgb(52, 119, 52); 
+  color: white; 
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-left: auto; 
+  transition: 0.3s ease;
+}
+
+.buy-now-btn:hover {
+  background-color: darkgreen; 
+}
+/* General Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header Styling with Relative Position */
+.header {
+  position: relative; /* Position relative */
+  width: 100%;
+  background-color: white; /* White header background */
+  color: black; /* Black text */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Logo Styling */
+.logo {
+  height: 40px; /* Adjust logo size */
+}
+
+/* Navigation Menu Styling */
+.nav-menu {
+  display: flex;
+  gap: 20px; /* Space between menu items */
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: black; /* Black links */
+  font-size: 16px;
+  text-transform: uppercase;
+  transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.nav-menu a:hover {
+  color: green; /* Change color on hover */
+}
+
+/* Contact Info Styling */
+.contact-info {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between icon and number */
+  font-size: 16px;
+  color: black;
+}
+
+.contact-info i {
+  color: green; /* Green phone icon */
+}

@@ -1,0 +1,274 @@
+ /* Reset styles */
+ body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Black Header */
+  .black-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: black;
+    color: white;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+
+  .black-header img {
+    height: 60px;
+  }
+
+  .black-header .btn-green {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+
+  .black-header .btn-green:hover {
+    background-color: #218838;
+    text-decoration: none;
+  }
+
+  /* White Header */
+  .white-header {
+    position: relative;
+    margin-top: 60px;
+    background-color: white;
+    padding: 15px 20px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .white-header img {
+    height: 40px;
+    width: auto;
+  }
+
+  .nav-link {
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+
+  .nav-link:hover {
+    text-decoration: underline;
+  }
+
+/* Background Image Section */
+.background-image {
+position: relative;
+width: 100%;
+height: 450px;
+background: url('image/background2.jpg') no-repeat center center;
+background-size: cover; 
+
+}  
+
+
+  .content-overlay {
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+  }
+
+  .content-overlay h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+
+  .content-overlay p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+
+  .content-overlay .btn {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color:rgb(121, 76, 76);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .content-overlay .btn:hover {
+    background-color: black;
+    text-decoration: none;
+  }
+
+  /* About Section */
+  .about-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 50px;
+    background-color: #f9f9f9;
+    position: relative;
+  }
+
+  .about-section img {
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .about-text {
+    width: 50%;
+    padding: 20px;
+  }
+
+  .about-text h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .about-text p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+  }
+
+/* New Section Below About */
+.new-section {
+width: 100%;
+height:450px;
+background: url('image/background.jpg') ;
+background-size: cover;
+position: relative;
+display: flex;
+align-items: flex-start; /* Align content to the top-left */
+justify-content: flex-start; /* Align horizontally to the left */
+padding: 20px; /* Add padding to move content slightly from edges */
+text-align: left; /* Left align text */
+}
+
+.new-section-content {
+color: #181717; /* Light text color */
+text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+max-width: 600px; /* Optional: Restrict width for better appearance */
+
+}
+
+.new-section-content h1 {
+font-size: 48px; /* Bigger font size */
+font-weight: bold; /* Make it bold */
+margin-bottom: 15px;
+color: white; /* Lightened color */
+
+}
+
+.new-section-content p {
+font-size: 18px;
+margin-bottom: 20px;
+line-height: 1.8;
+color: wheat;
+}
+
+.new-section-content .btn {
+padding: 10px 20px;
+font-size: 18px;
+background-color: red;
+color: white;
+border: none;
+border-radius: 5px;
+text-transform: uppercase;
+text-decoration: none;
+}
+
+.new-section-content .btn:hover {
+background-color: darkred;
+}
+
+.full-width-image {
+width: 100%; /* Full width */
+height: 500px; /* Fixed height */
+background: url('') no-repeat center center; /* Replace with your image path */
+background-size: cover; /* Cover the entire container */
+position: relative; /* Position relative for future flexibility */
+}
+
+
+.cards-container {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+margin: 40px 10%;
+position: relative;
+}
+
+.card {
+position: relative;
+width: 30%;
+margin: 15px 0;
+overflow: hidden;
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+transform: translateY(-10px);
+box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+width: 100%;
+height: 250px;
+object-fit: cover;
+display: block;
+border-bottom: 2px solid #ddd;
+}
+
+.card-content {
+padding: 15px;
+background-color: white;
+text-align: center;
+}
+
+.card-content h5 {
+font-size: 20px;
+margin: 10px 0;
+font-weight: bold;
+}
+
+.card-content p {
+font-size: 16px;
+color: #555;
+}
+
+/* Read More Button Styling */
+.read-more {
+margin-top: 10px;
+padding: 10px 15px;
+background-color: red;
+color: white;
+border: none;
+border-radius: 5px;
+font-size: 14px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+.read-more:hover {
+background-color: darkred;
+}

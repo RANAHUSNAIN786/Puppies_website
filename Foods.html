@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Foods</title>
+    <style>
+    
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #f5f5f5;
+      font-weight: bold;
+    }
+                /* serach box ith button */
+   /* White Header */
+   .white-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1e1e1e;
+            padding: 15px 20px;
+            border-bottom: 1px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 10;
+        }
+
+        .white-header img {
+            height: 70px;
+        }
+
+        /* Navbar Container */
+        .navbar {
+            display: flex; /* Align items in a row */
+            align-items: center;
+            justify-content: center; /* Center links horizontally */
+        }
+
+        /* Navigation Links */
+        .navbar .nav-link {
+            font-weight: bold;
+            color: #ff8303;
+            margin: 0 19px;
+            transition: color 0.2s;
+            font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .navbar .nav-link:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* Dropdown Container */
+        .dropdown {
+            position: relative;
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: black;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            min-width: 150px;
+            z-index: 1;
+        }
+
+        /* Dropdown Links */
+        .dropdown-content a {
+            color: #ff8303;
+            padding: 10px 12px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: white;
+            color: black;
+        }
+
+        /* Show Dropdown on Hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Search Box */
+        .search-box {
+            display: flex;
+            align-items: center;
+            border: 2px solid #ccc;
+            border-radius: 25px;
+            overflow: hidden;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-input {
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            flex: 1;
+            outline: none;
+        }
+
+        .search-button {
+            border: none;
+            padding: 10px 20px;
+            background-color: #ff8303;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            outline: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-button:hover {
+            background-color: white;
+            color: black;
+        }
+
+
+/* Banner */
+.banner {
+            position: relative;
+            margin-top: 70px;
+        }
+
+        .banner img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .banner-text {
+            position: absolute;
+            top: 65%;
+            left: 20%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #ff8303;
+        }
+
+        .banner-text h1 {
+            font-size: 70px;
+            font-weight: bold;
+        }
+
+        .banner-text p {
+            font-size: 20px;
+            color: white;
+        }
+
+        /* Containers for Dog Foods */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 20px;
+            font-size: 40px;
+            color: #ff8303;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .food-box {
+            background-color: #1e1e1e;
+            border: 2px solid #ff8303;
+            width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .food-box img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .food-box h3 {
+            margin: 15px 0;
+            color: #ff8303;
+            font-size: 22px;
+        }
+
+        .food-box p {
+            color: #ccc;
+            padding: 0 15px 20px;
+        }
+
+        .food-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 132, 3, 0.8);
+        }
+
+
+    /* .footer section */
+    .dog-footer {
+  background: #121212; /* Black theme */
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  padding: 2rem 1rem;
+  border: 3px solid  #ff8303;
+  margin-top: 60px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  text-align: center;
+  
+}
+
+/* Headings and Paragraphs */
+.footer-contact h2,
+.footer-social h3,
+.footer-newsletter h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #ff8303; /* Vibrant orange */
+}
+
+.footer-container p {
+  font-size: 1rem;
+  color: #cccccc;
+}
+
+/* Contact Section */
+.footer-details {
+  margin-top: 1rem;
+}
+
+.footer-item {
+  margin: 1rem 0;
+}
+
+.footer-item i {
+  font-size: 1.5rem;
+  color: #ff8303; /* Orange */
+  margin-bottom: 0.5rem;
+}
+
+.footer-item p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Social Media Section */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.social-icons a {
+  color: #ff8303;
+  font-size: 3rem;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  color: #ffffff; /* White on hover */
+}
+
+/* Newsletter Section */
+.footer-newsletter form {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.footer-newsletter input {
+  padding: 0.7rem 1rem;
+  border: 1px solid #ff8303; /* Orange border */
+  border-radius: 5px;
+  background: #1c1c1c; /* Dark background */
+  color: #ffffff;
+  outline: none;
+  width: 250px;
+}
+
+.footer-newsletter button {
+  padding: 0.7rem 1rem;
+  border: none;
+  background:  #ff5700; /* Orange button */
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.footer-newsletter button:hover {
+  background: #ff5700; /* Darker orange */
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #cccccc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+}
+/* Blinking Shadow Effect */
+.blinking-shadow {
+    box-shadow: 0 0 15px 2px rgba(255, 102, 0, 0.8);
+    animation: blink-shadow 1s infinite;
+}
+
+@keyframes blink-shadow {
+    0% {
+        box-shadow: 0 0 15px 2px rgba(255, 102, 0, 0.8);
+    }
+    50% {
+        box-shadow: 0 0 30px 5px rgba(255, 102, 0, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 15px 2px rgba(255, 102, 0, 0.8);
+    }
+  }
+        
+    </style>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+
+    <div class="white-header">
+        <!-- Logo -->
+        <img src="image/logo1 (2).png" alt="Logo">
+        
+        <!-- Search Box -->
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="Search here...">
+            <button class="search-button">Search</button>
+        </div>
+    
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <a href="Home.html" class="nav-link">Home</a>
+            <a href="About.html" class="nav-link">About</a>
+            <a href="Puppies.html" class="nav-link">Puppies</a>
+    
+            <!-- Dropdown for Services -->
+            <div class="dropdown">
+                <a href="services.html" class="nav-link">Services &#9662</a>
+                <div class="dropdown-content">
+                    <a href="Gallery.html">Gallery</a>
+                    <a href="">Foods</a>
+                </div>
+            </div>
+    
+            <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+    </div>
+
+      <!-- Banner -->
+      <div class="banner">
+        <img src="image/vip bg.jpg" alt="Dog Food">
+        <div class="banner-text">
+            <h1> Dog Foods</h1>
+            <p>Healthy and tasty meals for  friend!</p>
+        </div>
+    </div>
+
+    <!-- Dog Foods Section -->
+    <div id="foods" class="section-title">Top Dog Foods</div>
+    <div class="container">
+        <div class="food-box">
+            <img src="food img/8.jpg" alt="Dry Food">
+            <h3>Dry Dog Food</h3>
+            <p>High-quality dry kibbles for optimal nutrition and energy.</p>
+        </div>
+        <div class="food-box">
+            <img src="food img/2.avif" alt="Wet Food">
+            <h3>Wet Dog Food</h3>
+            <p>Delicious wet food packed with essential nutrients and flavors.</p>
+        </div>
+        <div class="food-box">
+            <img src="food img/3.avif" alt="Wet Food">
+            <h3>Wet Dog Food</h3>
+            <p>Delicious wet food packed with essential nutrients and flavors.</p>
+        </div>
+        <div class="food-box">
+            <img src="food img/4.avif" alt="Wet Food">
+            <h3>Wet Dog Food</h3>
+            <p>Delicious wet food packed with essential nutrients and flavors.</p>
+        </div>
+        <div class="food-box">
+            <img src="food img/5.avif" alt="Wet Food">
+            <h3>Wet Dog Food</h3>
+            <p>Delicious wet food packed with essential nutrients and flavors.</p>
+        </div>
+        <div class="food-box">
+            <img src="food img/6.jpg" alt="Raw Food">
+            <h3>Raw Dog Food</h3>
+            <p>Fresh raw meals for a balanced and natural diet.</p>
+        </div>
+        <div class="food-box">
+            <img src="food img/8.jpg" alt="Treats">
+            <h3>Dog Treats</h3>
+            <p>Healthy treats for training and rewarding your pup.</p>
+        </div>
+        <div class="food-box">
+            <img src="food img/7.jpg" alt="Supplements">
+            <h3>Supplements</h3>
+            <p>Essential vitamins and minerals for your dog's health.</p>
+        </div>
+    </div>
+
+
+
+      <!-- fooooooooooter -->
+      <footer class="dog-footer">
+        <div class="footer-container">
+          <!-- Contact Section -->
+          <div class="footer-contact">
+            <h2>Contact Us</h2>
+            <p>Have questions about your furry friends? We're here to help!</p>
+            <div class="footer-details">
+              <div class="footer-item">
+               <a href="https://maps.app.goo.gl/S1zrSpjKsgZ6whaH6"><i class="fa fa-map-marker" aria-hidden="true" ></i></a> 
+                <p>12 Aptech metro star gate Karachi</p>
+              </div>
+              <div class="footer-item">
+                <a href="tel:+923156123959"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                <p>+92 3156123959</p>
+              </div>
+              
+            </div>
+          </div>
+
+<!-- Social Media Section -->
+<div class="footer-social">
+<h3>Follow Us</h3>
+<p>Join our community for updates, tips, and adorable dog photos.</p>
+<div class="social-icons">
+    <a href="https://www.facebook.com/profile.php?id=61570778482897&mibextid=ZbWKwL" target="_blank"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+    <a href="https://wa.me/03156123959" target="_blank"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+    <a href="https://www.instagram.com/puppies7480/profilecard/?igsh=NzhqNGFxcTRybmM=" target="_blank"><i class="-brands fa-instagram" aria-hidden="true"></i></a>
+    <a href="https://www.youtube.com/@MuhammadHasanin-i5p" target="_blank"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+<!-- Newsletter Section -->
+<div class="footer-newsletter ">
+<h3>Subscribe to Our Newsletter</h3>
+<p>Stay updated with the latest in dog care, news,Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur. and tips.</p>
+<form action="https://www.youtube.com/@MuhammadHasanin-i5p">
+  <input type="email" placeholder="Enter your email" required>
+  <a href="https://www.youtube.com/@MuhammadHasanin-i5p"><button class="blinking-shadow " type="submit">Subscribe</button></a>
+</form>
+</div>
+</div>
+
+<!-- Footer Bottom -->
+<div class="footer-bottom">
+<p>&copy; 2024 DogWorld. All rights reserved.</p>
+</div>
+</footer>
+
+</body>
+</html>

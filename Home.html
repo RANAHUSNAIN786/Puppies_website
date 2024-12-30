@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Puppy Paradise</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #f5f5f5;
+      font-weight: bold;
+    }
+                /* serach box ith button */
+   /* White Header */
+   .white-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1e1e1e;
+            padding: 15px 20px;
+            border-bottom: 1px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 10;
+        }
+
+        .white-header img {
+            height: 70px;
+        }
+
+        /* Navbar Container */
+        .navbar {
+            display: flex; /* Align items in a row */
+            align-items: center;
+            justify-content: center; /* Center links horizontally */
+        }
+
+        /* Navigation Links */
+        .navbar .nav-link {
+            font-weight: bold;
+            color: #ff8303;
+            margin: 0 19px;
+            transition: color 0.2s;
+            font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .navbar .nav-link:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* Dropdown Container */
+        .dropdown {
+            position: relative;
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: black;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            min-width: 150px;
+            z-index: 1;
+        }
+
+        /* Dropdown Links */
+        .dropdown-content a {
+            color: #ff8303;
+            padding: 10px 12px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: white;
+            color: black;
+        }
+
+        /* Show Dropdown on Hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Search Box */
+        .search-box {
+            display: flex;
+            align-items: center;
+            border: 2px solid #ccc;
+            border-radius: 25px;
+            overflow: hidden;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-input {
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            flex: 1;
+            outline: none;
+        }
+
+        .search-button {
+            border: none;
+            padding: 10px 20px;
+            background-color: #ff8303;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            outline: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-button:hover {
+            background-color: white;
+            color: black;
+        }
+
+
+    .background-image {
+      width: 100%;
+      height: 500px;
+      background: url('image/vip\ bg.jpg')  center center scroll;
+      background-size: cover;
+      margin-top: 50px;
+    }
+
+    .background-content {
+      position: absolute;
+      top: 20%;
+      left: 25%;
+      transform: translate(-50%, -20%);
+      color: #f5f5f5;
+      text-align: center;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-weight: bold;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .background-content h1 {
+      font-size: 50px;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+      color:  #ff8303;
+
+    }
+
+    .background-content .btn {
+      padding: 10px 20px;
+      background-color: #ff8303;
+      color: #1e1e1e;
+      border-radius: 5px;
+      text-transform: uppercase;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      margin-top: 30px;
+      font-weight: bold;
+    }
+
+    .background-content .btn:hover {
+      background-color:white;
+      color: black;
+    }
+
+    .cards-section {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 10%;
+      padding-bottom: 7%;
+    }
+
+    .card {
+      display: flex;
+      align-items: center;
+      width: 30%;
+      background: #1e1e1e;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+      border-radius: 8px;
+      overflow: hidden;
+      height: 150px;
+      position: relative;
+      top: 30px;
+    }
+
+    .card img {
+      height: 50px;
+      object-fit: cover;
+      position: absolute;
+      left: 6%;
+      top: 17px;
+    }
+
+    .card-content {
+      width: 70%;
+      position: absolute;
+      left: 34%;
+      top: 10%;
+    }
+
+    .card-content h6 {
+      font-size: 16px;
+      margin: 0;
+      color: #f0a500;
+      font-weight: bold;
+    }
+    .h1d{
+      color:  #ff8303;
+      font-weight: bold;
+      font-size: 60px;
+    }
+    .hh{
+    color:  #ff8303;
+      font-weight: bold;
+      font-size: 60px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      text-align: center;
+    }
+    .card-content p {
+      font-size: 14px;
+      margin: 5px 0 0;
+      color: #bbbbbb;
+    }
+
+    .halp-section img {
+      border-radius: 30px;
+      width: 100%;
+    }
+
+    .halp-section h2 {
+      color: #ff8303;
+      font-weight: bold;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    .halp-section .btn {
+      background-color: #ff8303;
+      color: #1e1e1e;
+      border: none;
+      border-radius: 5px;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    .halp-section .btn:hover {
+      background-color: white;
+      color: black;
+    }
+    .cim1{
+      border-radius: 30px;
+    }
+    .container h2{
+      color: #ff8303;
+      font-weight: bold;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+    }
+    .container .btn{
+      background-color: #ff8303;
+      color: #1e1e1e;
+      border: none;
+      border-radius: 5px;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      
+    }
+     .container .btn:hover {
+      background-color: white;
+      color: black;
+    }
+    .end-cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin: 40px 10%;
+      position: relative;
+    }
+
+    .end-card {
+      position: relative;
+      width: 30%;
+      margin: 15px 0;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .end-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 2px solid #333;
+      transition: transform 0.3s ease;
+    }
+
+    .end-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .end-card-content {
+      padding: 15px;
+      background-color: black;
+      text-align: center;
+      color: #f5f5f5;
+    }
+
+    .end-card-content h5 {
+      font-size: 20px;
+      margin: 10px 0;
+      font-weight: bold;
+      color: #ff8303;
+    }
+
+    .end-card-content p {
+      font-size: 16px;
+      color: #bbbbbb;
+    }
+
+    .read-more {
+      margin-top: 10px;
+      padding: 10px 15px;
+      background-color: #ff8303;
+      color: #1e1e1e;
+      border: none;
+      border-radius: 5px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .read-more:hover {
+      background-color: white;
+      color: #121212;
+    }
+
+    
+        /* Background Container */
+        .galery-text{
+          margin-top: 50px;
+        }
+        .container1 {
+            position: relative;
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .container1 .bg img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .container1 .bgtext {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .container1 h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .container1 p {
+            font-size: 1.2rem;
+        }
+
+        /* Slider Container */
+        .container {
+            position: relative;
+            overflow: hidden;
+            max-width: 90%;
+            margin: auto;
+            padding: 10px;
+            margin-top: 60px;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .box {
+            min-width: 400px;
+            margin: 10px;
+            background-color: black;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .box:hover {
+            transform: translateY(-10px);
+        }
+
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .box h3 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            color: #ff8c00;
+        }
+
+        .box p {
+            font-size: 1rem;
+            color: white;
+        }
+
+        /* Arrow Buttons */
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #ff8303 ;
+            color: white;
+            border: none;
+            font-size: 2rem;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+
+        .arrow:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        /* images hover box */
+     
+        /* Container */
+        .containerg {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px auto;
+            max-width: 90%;
+            margin-top: 60px;
+        }
+
+        /* Image Box */
+        .boxg {
+            position: relative;
+            width: calc(33.333% - 10px);
+            height: 300px;
+            overflow: hidden;
+            cursor: pointer;
+            border-radius: 10px;
+            
+        }
+
+        .boxg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+
+        .boxg:hover img {
+            transform: scale(1.1);
+            opacity: 0.7;
+        }
+
+        /* Button */
+        .load-more {
+            margin-top: 20px;
+            padding: 10px 20px;
+            margin-left: 45%;
+            font-size: 30px;
+            color: black;
+            background-color:  #ff8303;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            
+            
+        }
+
+        .load-more:hover {
+            background-color: white;
+            color: black;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .box {
+                width: calc(50% - 10px); 
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .box {
+                width: 100%; /* One image per row */
+            }
+        }
+      /* .footer section */
+  .dog-footer {
+  background: #121212; /* Black theme */
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  padding: 2rem 1rem;
+  border: 3px solid  #ff8303;
+  margin-top: 60px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  text-align: center;
+  
+}
+
+/* Headings and Paragraphs */
+.footer-contact h2,
+.footer-social h3,
+.footer-newsletter h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #ff8303; /* Vibrant orange */
+}
+
+.footer-container p {
+  font-size: 1rem;
+  color: #cccccc;
+}
+
+/* Contact Section */
+.footer-details {
+  margin-top: 1rem;
+}
+
+.footer-item {
+  margin: 1rem 0;
+}
+
+.footer-item i {
+  font-size: 1.5rem;
+  color: #ff8303; /* Orange */
+  margin-bottom: 0.5rem;
+}
+
+.footer-item p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Social Media Section */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.social-icons a {
+  color: #ff8303;
+  font-size: 3rem;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  color: #ffffff; /* White on hover */
+}
+
+/* Newsletter Section */
+.footer-newsletter form {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.footer-newsletter input {
+  padding: 0.7rem 1rem;
+  border: 1px solid #ff8303; /* Orange border */
+  border-radius: 5px;
+  background: #1c1c1c; /* Dark background */
+  color: #ffffff;
+  outline: none;
+  width: 250px;
+}
+
+.footer-newsletter button {
+  padding: 0.7rem 1rem;
+  border: none;
+  background:  #ff5700; /* Orange button */
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.footer-newsletter button:hover {
+  background: #ff5700; /* Darker orange */
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #cccccc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+}
+/* Blinking Shadow Effect */
+.blinking-shadow {
+    box-shadow: 0 0 15px 2px rgba(255, 102, 0, 0.8);
+    animation: blink-shadow 1s infinite;
+}
+
+@keyframes blink-shadow {
+    0% {
+        box-shadow: 0 0 15px 2px rgba(255, 102, 0, 0.8);
+    }
+    50% {
+        box-shadow: 0 0 30px 5px rgba(255, 102, 0, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 15px 2px rgba(255, 102, 0, 0.8);
+    }
+  }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+  
+  <div class="white-header">
+    <!-- Logo -->
+    <img src="image/logo1 (2).png" alt="Logo">
+    
+    <!-- Search Box -->
+    <div class="search-box">
+        <input type="text" class="search-input" placeholder="Search here...">
+        <button class="search-button">Search</button>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="#" class="nav-link">Home</a>
+        <a href="About.html" class="nav-link">About</a>
+        <a href="Puppies.html" class="nav-link">Puppies</a>
+
+        <!-- Dropdown for Services -->
+        <div class="dropdown">
+            <a href="sevices.html" class="nav-link">Services &#9662</a>
+            <div class="dropdown-content">
+                <a href="Gallery.html">Gallery</a>
+                <a href="Foods.html">Foods</a>
+            </div>
+        </div>
+
+        <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+</div>
+  <!-- Full-Width Background Image -->
+  <div class="background-image">
+    <div class="background-content">
+      <h1>Welcome to Puppy Paradise</h1>
+      <!-- <a href="puppies.html" class="btn blinking-shadow">Explore Puppies →</a> -->
+    </div>
+  </div>
+
+  <!-- Cards Section -->
+  <div class="cards-section">
+    <div class="card">
+      <img src="image/Grooming Services.png" alt="Grooming Services">
+      <div class="card-content">
+        <h6>Start Grooming Services</h6>
+        <p>Providing premium grooming to keep your pet looking great.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="image/Veterinary.png" alt="Veterinary 24/7">
+      <div class="card-content">
+        <h6>Start Veterinary 24/7</h6>
+        <p>Round-the-clock medical care for your furry friends.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="image/Fun Activities.png" alt="Fun Activities">
+      <div class="card-content">
+        <h6>Start Fun Activities</h6>
+        <p>Exciting games and activities to keep your puppy active.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Halp Section -->
+  <div class="container halp-section my-5">
+    <div class="row align-items-center">
+      <!-- Image Column -->
+      <div class="col-md-7">
+        <img src="image/halp image 1.avif" alt="Helping Puppies" class="img-fluid">
+      </div>
+      <!-- Text Column -->
+      <div class="col-md-5">
+        <h2>How We Help Puppies</h2>
+        <p>
+          At Puppy Paradise, we are committed to providing the best care and environment for your furry friends. 
+          Our dedicated team ensures that each puppy receives love, attention, and top-notch services, 
+          from grooming to health care.
+        </p>
+        <p>
+          Join us in making a difference in the lives of these adorable companions. Together, we can 
+          create happy tails and wagging moments for everyone.
+        </p>
+        <a href="puppies.html" class="btn blinking-shadow">Learn More</a>
+      </div>
+    </div>
+  </div>
+<!-- Puppies Playing Section -->
+<div class="container my-5">
+  <div class="row align-items-center">
+    <!-- Text Column -->
+    <div class="col-md-6">
+      <h2>Playful Moments with Puppies</h2>
+      <p>
+        Puppies are naturally energetic and curious, making playtime an essential part of their growth. 
+        It helps them learn social skills, build confidence, and stay active. At Puppy Paradise, we create 
+        engaging activities tailored to each puppy's needs, ensuring every tail is wagging with joy.
+      </p>
+      <p>
+        Playtime is not just fun; it's a way to strengthen the bond between you and your furry companion. 
+        Let's make every moment count!
+      </p>
+      <a href="puppies.html" class="btn blinking-shadow">Learn More</a>
+    </div>
+    <!-- Image Column -->
+    <div class="col-md-6 ">
+      <img src="image/dogs playing.avif" alt="Puppies Playing" class="cim1  ">
+    </div>
+  </div>
+</div>
+<h1 class="text-center h1d ">_____ About Us</h1>
+<div class="end-cards-container">
+  <!-- Dog Cards -->
+  <div class="end-card">
+    <img src="image/Rottweiler.jpg" alt="Rottweiler">
+    <div class="end-card-content">
+      <h5>Rottweiler</h5>
+      <p>A powerful and intelligent breed.Dangerous in world Lorem </p>
+    <a href="puppies.html"><button class="read-more blinking-shadow">Read More</button>
+    </a>  
+    </div>
+  </div>
+  
+  <div class="end-card">
+    <img src="image/husky.jpg" alt="Husky">
+    <div class="end-card-content ">
+      <h5>Husky</h5>
+      <p>An energetic dog with striking blue eyes.Very Dangerous in world Lorem  </p>
+      <a href="puppies.html"><button class="read-more blinking-shadow ">Read More</button></a>
+    </div>
+  </div>
+  
+  <div class="end-card">
+    <img src="image/Bulldog.jpg" alt="Bulldog">
+    <div class="end-card-content">
+      <h5>Bulldog</h5>
+      <p>Calm and courageous, with a charming personality.</p>
+      <a href="puppies.html"> <button class="read-more blinking-shadow">Read More</button></a>
+    </div>
+  </div>
+  
+  <div class="end-card">
+    <img src="image/Golden Retriever.jpg" alt="Golden Retriever">
+    <div class="end-card-content">
+      <h5>Golden Retriever</h5>
+      <p>Friendly, tolerant, and loyal Very Dangerous in.</p>
+      <a href="puppies.html"><button class="read-more blinking-shadow">Read More</button></a>
+    </div>
+  </div>
+  
+  <div class="end-card">
+    <img src="image/German Shepherd.jpg" alt="German Shepherd">
+    <div class="end-card-content">
+      <h5>German Shepherd</h5>
+      <p>Protective and intelligent breed Very Dangerous in.</p>
+      <a href="puppies.html"><button class="read-more blinking-shadow">Read More</button></a>
+    </div>
+  </div>
+  
+  
+  <div class="end-card">
+    <img src="gallery imgs/12.avif" alt="Beagle">
+    <div class="end-card-content">
+      <h5>Beagle</h5>
+      <p>Friendly and curious.Dogs popular feeds in canada </p>
+       <a href="puppies.html"><button class="read-more blinking-shadow">Read More</button></a>
+    </div>
+  </div>
+</div>    
+<div class="servicecontainer">
+  <div class="stext text-center"><h1 class="hh">___OUR SERVICES</h1><h4>We have following services for help animals.</h4></div>
+</div>
+      
+
+    <!-- Slider Section -->
+    <div class="container">
+        <!-- Previous Arrow -->
+        <button class="arrow prev" onclick="moveSlide(-1)">&#8592;</button>
+
+        <!-- Slider Content -->
+        <div class="slider" id="slider">
+            <div class="box">
+                <div class="icon">🐕</div>
+                <h3>Pet Training</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="box">
+                <div class="icon">⚕️</div>
+                <h3>Pet Veterinary</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="box">
+                <div class="icon">🍖</div>
+                <h3>Food & Nutrition</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="box">
+                <div class="icon">🏠</div>
+                <h3>Shelter & Care</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="box">
+                <div class="icon">🛁</div>
+                <h3>Pet Grooming</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="box">
+                <div class="icon">🎾</div>
+                <h3>Pet Activities</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+
+        <!-- Next Arrow -->
+        <button class="arrow next" onclick="moveSlide(1)">&#8594;</button>
+    </div>
+                 <!-- GALLERY -->
+      <div class="galery-text">
+      <h1 class="hh">___GALLERY</h1>
+      </div>            
+      <h3 class="text-center"> Hover Image Boxes</h3>
+
+      <!-- Image Boxes Container -->
+      <div class="containerg">
+          <div class="boxg">
+              <img src="gallery imgs/10.jpg" alt="Cat Image 1">
+          </div>
+          <div class="boxg">
+              <img src="gallery imgs/13.avif" alt="Cat Image 2">
+          </div>
+          <div class="boxg">
+              <img src="gallery imgs/16.jpg" alt="Cat Image 3">
+          </div>
+          <div class="boxg">
+              <img src="gallery imgs/20.jpg" alt="Cat Image 4">
+          </div>
+          <div class="boxg">
+              <img src="gallery imgs/5.avif" alt="Cat Image 5">
+          </div>
+          <div class="boxg">
+              <img src="gallery imgs/1.avif" alt="Cat Image 6">
+          </div>
+      </div>
+      <a href="Gallery.html"><button class="load-more blinking-shadow" >Show More →</button></a>
+
+
+
+             <!-- fooooooooooter -->
+             <footer class="dog-footer">
+              <div class="footer-container">
+                <!-- Contact Section -->
+                <div class="footer-contact">
+                  <h2>Contact Us</h2>
+                  <p>Have questions about your furry friends? We're here to help!</p>
+                  <div class="footer-details">
+                    <div class="footer-item">
+                     <a href="https://maps.app.goo.gl/S1zrSpjKsgZ6whaH6"><i class="fa fa-map-marker" aria-hidden="true" ></i></a> 
+                      <p>12 Aptech metro star gate Karachi</p>
+                    </div>
+                    <div class="footer-item">
+                      <a href="tel:+923156123959"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                      <p>+92 3156123959</p>
+                    </div>
+                    
+                  </div>
+                </div>
+
+    <!-- Social Media Section -->
+    <div class="footer-social">
+      <h3>Follow Us</h3>
+      <p>Join our community for updates, tips, and adorable dog photos.</p>
+      <div class="social-icons">
+          <a href="https://www.facebook.com/profile.php?id=61570778482897&mibextid=ZbWKwL" target="_blank"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+          <a href="https://wa.me/03156123959" target="_blank"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com/puppies7480/profilecard/?igsh=NzhqNGFxcTRybmM=" target="_blank"><i class="-brands fa-instagram" aria-hidden="true"></i></a>
+          <a href="https://www.youtube.com/@MuhammadHasanin-i5p" target="_blank"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+        </div>
+    </div>
+
+    <!-- Newsletter Section -->
+    <div class="footer-newsletter ">
+      <h3>Subscribe to Our Newsletter</h3>
+      <p>Stay updated with the latest in dog care, news,Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur. and tips.</p>
+      <form action="https://www.youtube.com/@MuhammadHasanin-i5p">
+        <input type="email" placeholder="Enter your email" required>
+        <a href="https://www.youtube.com/@MuhammadHasanin-i5p"><button class="blinking-shadow " type="submit">Subscribe</button></a>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <p>&copy; 2024 DogWorld. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  const slider = document.getElementById('slider');
+  let slideIndex = 0;
+  const slideWidth = 300; // Width of each box
+
+  function moveSlide(direction) {
+      const totalSlides = document.querySelectorAll('.box').length;
+      const visibleSlides = 3; // Adjust this based on how many boxes fit on the screen
+      slideIndex += direction;
+
+      // Prevent overflow
+      if (slideIndex < 0) {
+          slideIndex = totalSlides - visibleSlides;
+      } else if (slideIndex > totalSlides - visibleSlides) {
+          slideIndex = 0;
+      }
+
+      slider.style.transform = `translateX(-${slideIndex * slideWidth}px)`;
+  }
+
+  // Auto Slide every 3 seconds
+  setInterval(() => moveSlide(1), 3000);
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
